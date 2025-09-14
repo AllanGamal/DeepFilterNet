@@ -24,10 +24,19 @@ pip install sounddevice numpy
 
 Starta appen
 ```bash
-# Rekommenderat: använd DF3‑modellen (C‑API stöder ej DF2 i denna version)
-export DF_MODEL_TAR=models/DeepFilterNet3_onnx.tar.gz
-python macos_app/app.py
+# Från macos_app-mappen
+./run.sh
+
+# Eller manuellt:
+# Aktivera virtual environment
+source ../venv_app/bin/activate
+# Kör appen
+python3 app.py
 ```
+
+Appen kommer automatiskt hitta:
+- Modellen: `../models/DeepFilterNet3_onnx.tar.gz`
+- C-biblioteket: `../target/release/libdf.dylib`
 
 Användning i appen
 - Välj din mikrofon och dina högtalare i dropdownlistorna.
